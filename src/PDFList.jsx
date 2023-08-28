@@ -7,6 +7,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 const PDFList = () => {
   const [pdfs, setPDFs] = useState([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     axios
@@ -32,40 +33,54 @@ const PDFList = () => {
   };
 
   return (
-    <div>
-      <h2>List of PDFs</h2>
+    <div className="flex flex-col p-10">
+      <span className="text-5xl font-extrabold">List of PDFs..</span>
+      <br />
+      <div className="all_pdf flex flex-col gap-10 w-full">
+        {pdfs.map((pdf, key) => (
+          <div className="bg-gray-500 ">
+            <div>
+              <div className="flex justify-between p-3">
+                <div>
+                  <span className="font-bold">{key}.</span> &nbsp;
+                  <span className="uppercase hover:underline underline-offset-4 hover:font-bold transition-all">
+                    <a
+                      href={`http://localhost:5000/${pdf.path}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {pdf.name}
+                    </a>
+                  </span>
+                </div>
 
-      <ul className="all_pdf">
-        {pdfs.map((pdf) => (
-          <div>
-            <li key={pdf._id}>
-              <a
-                href={`http://localhost:5000/${pdf.path}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {pdf.name}
-              </a>
-              &nbsp;
-              <button onClick={() => handleDelete(pdf._id)}>Delete</button>
-              <div className="pdf-container">
-                <Document
-                  file={`http://localhost:5000/${pdf.path}`}
-                  onLoadError={(error) => console.error(error)}
+                <button
+                  onClick={() => handleDelete(pdf._id)}
+                  className="bg-red-600 w-20 font-bold text-white h-8 rounded-lg"
                 >
-                  <Page
-                    pageNumber={1}
-                    className="pdf-page"
-                    width={150}
-                    // If you want to control the height, you can set it here
-                    // height={200}
-                  />
-                </Document>
+                  Delete
+                </button>
               </div>
-            </li>
+              {open && (
+                <div className="pdf-container ">
+                  <Document
+                    file={`http://localhost:5000/${pdf.path}`}
+                    onLoadError={(error) => console.error(error)}
+                  >
+                    <Page
+                      pageNumber={1}
+                      className="pdf-page max-h-screen h-96"
+                      width={150}
+                      // If you want to control the height, you can set it here
+                      height={200}
+                    />
+                  </Document>
+                </div>
+              )}
+            </div>
           </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -32,12 +32,20 @@ const FileUpload = () => {
   };
 
   return (
-    <div>
-      <input
-        type="file"
-        onChange={handleChange}
-      />
-      <button onClick={handleUpload}>Upload PDF</button>
+    <div className="bg-yellow-400 h-52 flex  flex-col gap-10 justify-center items-center font-bold">
+      <div className="text-3xl font-extrabold">Upload Your PDF's</div>
+      <div>
+        <input
+          type="file"
+          onChange={handleChange}
+        />
+        <button
+          onClick={handleUpload}
+          className="bg-black w-52 text-white h-10 rounded-lg hover:bg-[#252525] transition-all "
+        >
+          Upload PDF
+        </button>
+      </div>
     </div>
   );
 };
