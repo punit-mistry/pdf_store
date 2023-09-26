@@ -42,18 +42,24 @@ const Login = () => {
     <div className="flex flex-row-reverse justify-center items-center gap-10 h-screen w-full p-10">
       <div className="border-2 hover:border-black rounded-lg shadow-2xl p-5 flex flex-col gap-10 w-1/2 h-2/3 justify-center items-center">
         <span className="text-5xl font-bold">Login </span>
-        <input
-          type="text"
-          placeholder="Enter your username"
-          className="border-2 rounded-lg p-2 w-96"
-          onChange={HandleChange}
-        />
-        <input
-          type="text"
-          className="border-2 rounded-lg p-2 w-96"
-          placeholder="Enter your password"
-          onChange={HandleChange}
-        />
+        <div>
+          <label className="block mb-2 text-red-500">userName:123456789</label>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            className="border-2 rounded-lg p-2 w-96"
+            onChange={HandleChange}
+          />
+        </div>
+        <div>
+          <label className="block mb-2 text-red-500">Password:123456789</label>
+          <input
+            type="text"
+            className="border-2 rounded-lg p-2 w-96"
+            placeholder="Enter your password"
+            onChange={HandleChange}
+          />
+        </div>
         <button
           onClick={HandleSubmit}
           className="hover:bg-black hover:text-white w-32 h-10 font-bold transition-all"
