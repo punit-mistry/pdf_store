@@ -17,3 +17,14 @@
     transform: translateX(-100%);
   }
 }
+
+
+.cs-message__content, .cs-message-input__content-editor-wrapper,.cs-message-input__content-editor{
+  background-color:  rgb(219, 234, 254), !important;
+}
+.cs-button--attachment,.cs-button,.cs-typing-indicator__text{
+  color: black !important;
+}
+.cs-typing-indicator__dot{
+background-color: black !important;
+}

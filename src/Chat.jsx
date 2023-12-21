@@ -13,7 +13,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import Navbar from "./Navbar";
 
-const API_KEY = "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";
+const API_KEY = "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";
 // "Explain things like you would to a 10 year old learning how to code."
 const systemMessage = {
   //  Explain things like you're talking to a software professional with 5 years of experience.
@@ -25,7 +25,7 @@ const systemMessage = {
 function Chat() {
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm ChatGPT! Ask me anything!",
+      message: "Hello, I'm PDf Chat Bot ! Ask me anything About the PDF !",
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -102,8 +102,8 @@ function Chat() {
 
   return (
     <>
-      <Navbar />
-      <div className=" flex justify-center  p-10 h-[93vh] bg-yellow-500">
+      {/* <Navbar /> */}
+      <div className=" flex justify-center  p-10 h-[93vh] ">
         <div className="w-full h-[80vh] rounded-xl">
           <MainContainer className="bg-red-500">
             <ChatContainer>

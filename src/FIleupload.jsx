@@ -32,11 +32,12 @@ const FileUpload = () => {
   };
 
   return (
-    <div className="bg-yellow-400 h-52 flex  flex-col gap-10 justify-center items-center font-bold">
-      <div className="text-3xl font-extrabold">Upload Your PDF's</div>
-      <div>
+    <div className="bg-blue-100  h-52 flex  flex-col gap-10 justify-center items-center font-bold">
+      <div className="text-xl font-extrabold">Upload Your PDF's</div>
+      <div className="flex flex-col justify-center items-center gap-5">
         <input
           type="file"
+          className="pl-20 "
           onChange={handleChange}
         />
         <button

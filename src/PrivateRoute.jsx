@@ -9,7 +9,7 @@ const PrivateRoute = ({ element, isLogged }) => {
     return element;
   } else {
     console.log("PrivateRoute: Redirecting to /");
-    return <Navigate to="/" />;
+    return <Navigate to="/pdf" />;
   }
 };
 

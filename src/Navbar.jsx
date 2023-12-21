@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import img1 from "./assets/avatar.svg";
 const Navbar = () => {
   const navigation = useNavigate();
@@ -7,6 +7,18 @@ const Navbar = () => {
     localStorage.clear();
     navigation("/");
   };
+  const location = useLocation(); // Get the current route location
+
+  // Define a function to check if the link matches the current route
+  const isCurrentRoute = (path) => {
+    return location.pathname === path;
+  };
+
+  // Apply a CSS class to the Link component if it matches the current route
+  const getLinkClassName = (path) => {
+    return isCurrentRoute(path) ? "text-red-500 underline" : "";
+  };
+
   const userName = localStorage.getItem("UserName");
   return (
     <div className="bg-black font-bold text-white flex justify-between p-5">
@@ -27,9 +39,19 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex  gap-10">
-        <Link to="/pdf">Upload </Link>
-        <Link to="/pdfchat">Chat </Link>
+      <div className="flex  gap-10 ">
+        {/* <Link
+          to="/pdf"
+          className={getLinkClassName("/pdf")}
+        >
+          Upload
+        </Link>
+        <Link
+          to="/pdfchat"
+          className={getLinkClassName("/pdfchat")}
+        >
+          Chat
+        </Link> */}
         <div onClick={changeRoute}>LogOut</div>
       </div>
     </div>

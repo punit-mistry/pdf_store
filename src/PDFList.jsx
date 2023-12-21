@@ -33,17 +33,17 @@ const PDFList = () => {
   };
 
   return (
-    <div className="flex flex-col p-10">
-      <span className="text-5xl font-extrabold">List of PDFs..</span>
+    <div className="flex flex-col p-2 ">
+      <span className="text-xl font-bold">List of PDFs..</span>
       <br />
-      <div className="all_pdf flex flex-col gap-10 w-full">
+      <div className=" flex flex-col gap-3 w-full overflow-y-scroll max-h-[60vh]">
         {pdfs.map((pdf, key) => (
-          <div className="bg-gray-500 ">
+          <div className="bg-blue-100 rounded-lg">
             <div>
-              <div className="flex justify-between p-3">
+              <div className="flex flex-col justify-between gap-3 p-1">
                 <div>
                   <span className="font-bold">{key}.</span> &nbsp;
-                  <span className="uppercase hover:underline underline-offset-4 hover:font-bold transition-all">
+                  <span className="uppercase hover:underline underline-offset-4  transition-all">
                     <a
                       href={`http://localhost:5000/${pdf.path}`}
                       target="_blank"
@@ -56,7 +56,7 @@ const PDFList = () => {
 
                 <button
                   onClick={() => handleDelete(pdf._id)}
-                  className="bg-red-600 w-20 font-bold text-white h-8 rounded-lg"
+                  className="bg-slate-300 p-1 font-semibold  rounded-lg"
                 >
                   Delete
                 </button>
